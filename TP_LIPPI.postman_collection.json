@@ -1,0 +1,856 @@
+{
+	"info": {
+		"_postman_id": "679a3c7d-c8a9-48dc-a0d4-4b2e37d52fa0",
+		"name": "La Comanda LIPPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "cgomez",
+							"description": "// Nombre de usuario",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1234",
+							"description": "// Clave de usuario",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/auth/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion Usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "lpichio",
+							"description": "// Usuario a crear",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1234",
+							"description": "// Clave usuario a crear",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/usuarios",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion Empleados",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Luciana Pichio",
+							"description": "// Nombre de Empleado a crear",
+							"type": "text"
+						},
+						{
+							"key": "sectorId",
+							"value": "4",
+							"description": "// Sector de Empleado a crear",
+							"type": "text"
+						},
+						{
+							"key": "usuarioId",
+							"value": "5",
+							"description": "// Usuario ID de Empleado a crear",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/empleados",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion Sectores",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "descripcion",
+							"value": "Socios",
+							"description": "// Descripcion del sector",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/sectores",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"sectores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion Mesas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/mesas",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion Productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "descripcion",
+							"value": "Campari",
+							"description": "// Nombre a mostrar del producto",
+							"type": "text"
+						},
+						{
+							"key": "sectorId",
+							"value": "2",
+							"description": "// Sector al que pertenece - \"2\"\t\"Bartender\"- \"3\"\t\"Cerveceros\"\t - \"4\"\t\"Cocineros\" \n",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "155",
+							"description": "// Precio float",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/productos",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion Pedidos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productos",
+							"value": "[ { \"productoId\": \"1\", \"cantidad\": \"2\" }, { \"productoId\": \"4\", \"cantidad\": \"1\" }, { \"productoId\": \"3\", \"cantidad\": \"1\" } ]",
+							"description": "// array de productos con formato productoId y cantidad",
+							"type": "text"
+						},
+						{
+							"key": "mesaId",
+							"value": "1",
+							"description": "// mesa del pedido",
+							"type": "text"
+						},
+						{
+							"key": "mozoId",
+							"value": "2",
+							"description": "// mozo del pedido",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/pedidos",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion Encuestas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/encuestas",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"encuestas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Pedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URL}}/pedidos",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Pendientes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIxODA5NzgsImV4cCI6MTU2MjI0MDk3OCwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6IkNhcmxvcyBHb21leiIsInNlY3RvcklkIjoxLCJ1c3VhcmlvSWQiOjEsImVzdGFkbyI6MSwiZmVjaGFBbHRhIjpudWxsfSwiYXBwIjoiTEEgQ09NQU5EQSJ9.R5XXTQCAG1TkZqKO16Bglx33nPC4oDmO12oNObLXq7c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URL}}/pedidos/pendientes",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pedidos",
+						"pendientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suspender Empleado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIzNTAwMDAsImV4cCI6MTU2MjQxMDAwMCwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6IkNhcmxvcyBHb21leiIsInNlY3RvcklkIjoxLCJ1c3VhcmlvSWQiOjEsImVzdGFkbyI6MSwiZmVjaGFBbHRhIjpudWxsfSwiYXBwIjoiTEEgQ09NQU5EQSJ9.Rk4U4RitRkA-5q-QlSlQrYxNzvPqxv5gST2jrPlwdao",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "empleadoId",
+							"value": "1",
+							"description": "// empleado a suspender / pasar a activo",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "1",
+							"description": "// estado 1 = activo, 2= suspendido",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/empleados/estado",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"empleados",
+						"estado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Producto Listo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIxODQyNDksImV4cCI6MTU2MjI0NDI0OSwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjUsIm5vbWJyZSI6Ikx1Y2lhbmEgUGljaGlvIiwic2VjdG9ySWQiOjQsInVzdWFyaW9JZCI6NSwiZXN0YWRvIjoxLCJmZWNoYUFsdGEiOm51bGx9LCJhcHAiOiJMQSBDT01BTkRBIn0.XrK3_TpTb9NzDSc8eEDku4D96kHmYwjKXVb7FcPn0-s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productoEnPreparacion",
+							"value": "3",
+							"description": "// Id producto en preparacion",
+							"type": "text"
+						},
+						{
+							"key": "pedidoCodigo",
+							"value": "66n1n",
+							"description": "// Codigo de pedido",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/pedidos/productoListo",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pedidos",
+						"productoListo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tomar Pendiente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIxODQyNDksImV4cCI6MTU2MjI0NDI0OSwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjUsIm5vbWJyZSI6Ikx1Y2lhbmEgUGljaGlvIiwic2VjdG9ySWQiOjQsInVzdWFyaW9JZCI6NSwiZXN0YWRvIjoxLCJmZWNoYUFsdGEiOm51bGx9LCJhcHAiOiJMQSBDT01BTkRBIn0.XrK3_TpTb9NzDSc8eEDku4D96kHmYwjKXVb7FcPn0-s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pendiente",
+							"value": "2",
+							"description": "// Id pendiente",
+							"type": "text"
+						},
+						{
+							"key": "pedido",
+							"value": "1",
+							"description": "// Id pedido",
+							"type": "text"
+						},
+						{
+							"key": "tiempoEstimado",
+							"value": "15",
+							"description": "// En minutos",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/pedidos/asignarPendiente",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pedidos",
+						"asignarPendiente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos Entregar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIxODQyNDksImV4cCI6MTU2MjI0NDI0OSwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjUsIm5vbWJyZSI6Ikx1Y2lhbmEgUGljaGlvIiwic2VjdG9ySWQiOjQsInVzdWFyaW9JZCI6NSwiZXN0YWRvIjoxLCJmZWNoYUFsdGEiOm51bGx9LCJhcHAiOiJMQSBDT01BTkRBIn0.XrK3_TpTb9NzDSc8eEDku4D96kHmYwjKXVb7FcPn0-s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pedidoCodigo",
+							"value": "66n1n",
+							"description": "// codigo de la mesa a consultar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/pedidos/entregar",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pedidos",
+						"entregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos Pagar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIxODQyNDksImV4cCI6MTU2MjI0NDI0OSwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjUsIm5vbWJyZSI6Ikx1Y2lhbmEgUGljaGlvIiwic2VjdG9ySWQiOjQsInVzdWFyaW9JZCI6NSwiZXN0YWRvIjoxLCJmZWNoYUFsdGEiOm51bGx9LCJhcHAiOiJMQSBDT01BTkRBIn0.XrK3_TpTb9NzDSc8eEDku4D96kHmYwjKXVb7FcPn0-s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pedidoCodigo",
+							"value": "66n1n",
+							"description": "// codigo de la mesa a consultar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/pedidos/pagar",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pedidos",
+						"pagar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mesas Cerrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIxODQyNDksImV4cCI6MTU2MjI0NDI0OSwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjUsIm5vbWJyZSI6Ikx1Y2lhbmEgUGljaGlvIiwic2VjdG9ySWQiOjQsInVzdWFyaW9JZCI6NSwiZXN0YWRvIjoxLCJmZWNoYUFsdGEiOm51bGx9LCJhcHAiOiJMQSBDT01BTkRBIn0.XrK3_TpTb9NzDSc8eEDku4D96kHmYwjKXVb7FcPn0-s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mesaCodigo",
+							"value": "ewr4a",
+							"description": "// codigo de la mesa a cerrar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/mesas/cerrar",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"mesas",
+						"cerrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes Tiempo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pedidoCodigo",
+							"value": "66n1n",
+							"description": "// codigo de la mesa a consultar",
+							"type": "text"
+						},
+						{
+							"key": "mesaCodigo",
+							"value": "ewr4a",
+							"description": "// codigo del pedido a consultar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/clientes/pedido/tiempo",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"clientes",
+						"pedido",
+						"tiempo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes Encuesta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIxODQyNDksImV4cCI6MTU2MjI0NDI0OSwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjUsIm5vbWJyZSI6Ikx1Y2lhbmEgUGljaGlvIiwic2VjdG9ySWQiOjQsInVzdWFyaW9JZCI6NSwiZXN0YWRvIjoxLCJmZWNoYUFsdGEiOm51bGx9LCJhcHAiOiJMQSBDT01BTkRBIn0.XrK3_TpTb9NzDSc8eEDku4D96kHmYwjKXVb7FcPn0-s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pedidoCodigo",
+							"value": "66n1n",
+							"description": "// codigo de la mesa a consultar",
+							"type": "text"
+						},
+						{
+							"key": "puntajeMesa",
+							"value": "5",
+							"description": "// puntaje mesa",
+							"type": "text"
+						},
+						{
+							"key": "puntajeRestaurante",
+							"value": "4",
+							"description": "// puntaje local",
+							"type": "text"
+						},
+						{
+							"key": "puntajeMozo",
+							"value": "6",
+							"description": "// puntaje mozo",
+							"type": "text"
+						},
+						{
+							"key": "puntajeCocinero",
+							"value": "7",
+							"description": "// puntaje cocinero",
+							"type": "text"
+						},
+						{
+							"key": "comentario",
+							"value": "me gusto la atencion",
+							"description": "// comentario",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/clientes/pedido/encuesta",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"clientes",
+						"pedido",
+						"encuesta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listados Empleados",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIzNTAwMDAsImV4cCI6MTU2MjQxMDAwMCwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6IkNhcmxvcyBHb21leiIsInNlY3RvcklkIjoxLCJ1c3VhcmlvSWQiOjEsImVzdGFkbyI6MSwiZmVjaGFBbHRhIjpudWxsfSwiYXBwIjoiTEEgQ09NQU5EQSJ9.Rk4U4RitRkA-5q-QlSlQrYxNzvPqxv5gST2jrPlwdao",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/listados/empleados",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"listados",
+						"empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listados Pedidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIzNTAwMDAsImV4cCI6MTU2MjQxMDAwMCwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6IkNhcmxvcyBHb21leiIsInNlY3RvcklkIjoxLCJ1c3VhcmlvSWQiOjEsImVzdGFkbyI6MSwiZmVjaGFBbHRhIjpudWxsfSwiYXBwIjoiTEEgQ09NQU5EQSJ9.Rk4U4RitRkA-5q-QlSlQrYxNzvPqxv5gST2jrPlwdao",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/listados/pedidos",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"listados",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listados Pedidos X Hora",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIzNTAwMDAsImV4cCI6MTU2MjQxMDAwMCwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6IkNhcmxvcyBHb21leiIsInNlY3RvcklkIjoxLCJ1c3VhcmlvSWQiOjEsImVzdGFkbyI6MSwiZmVjaGFBbHRhIjpudWxsfSwiYXBwIjoiTEEgQ09NQU5EQSJ9.Rk4U4RitRkA-5q-QlSlQrYxNzvPqxv5gST2jrPlwdao",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/listados/pedidosHora",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"listados",
+						"pedidosHora"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado Operaciones",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjIzNTAwMDAsImV4cCI6MTU2MjQxMDAwMCwiYXVkIjoiNDczOTViZjZhMDYxZTczZjA1NzYwNDNmMGE4N2ZkNjBhYTZjZTI1NCIsImRhdGEiOnsiaWQiOjEsIm5vbWJyZSI6IkNhcmxvcyBHb21leiIsInNlY3RvcklkIjoxLCJ1c3VhcmlvSWQiOjEsImVzdGFkbyI6MSwiZmVjaGFBbHRhIjpudWxsfSwiYXBwIjoiTEEgQ09NQU5EQSJ9.Rk4U4RitRkA-5q-QlSlQrYxNzvPqxv5gST2jrPlwdao",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{URL}}/listados/logs",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"listados",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
